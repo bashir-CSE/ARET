@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Courses - ARET</title>
+   
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/bootstrap-style.css">
+</head>
+<body>
+   <!-- Include Header -->
+   <div id="header-container"></div>
+   
+   <!-- Certificate Verification Alert -->
+   <div class="container mt-3">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+         <i class="fas fa-certificate me-2"></i>
+         <strong>Certificate Verification:</strong> 
+         <a href="https://script.google.com/macros/s/AKfycbzmm7sHLKgHs7nNnLbBJo875999eUsEMzVHR7cZ8AlRraD7AcUCkH41pOMIndBW2B7jOw/exec" 
+            target="_blank" class="alert-link">Click here to verify certificates</a>
+         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+   </div>
+
+   <!-- Courses Section -->
+   <section class="courses py-5 bg-light">
+      <div class="container">
+         <h1 class="heading text-center mb-5">Our Courses</h1>
+         
+         <!-- Search and Filter Section -->
+         <div class="row mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+               <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                  <input type="text" class="form-control" id="course-search" placeholder="Search courses...">
+               </div>
+            </div>
+            <div class="col-lg-6">
+               <div class="d-flex justify-content-lg-end">
+                  <select class="form-select" id="sort-courses" onchange="CourseGenerator.sortCourses(this.value)">
+                     <option value="default">Sort by</option>
+                     <option value="price-low">Price: Low to High</option>
+                     <option value="price-high">Price: High to Low</option>
+                     <option value="name">Name (A-Z)</option>
+                     <option value="duration">Duration</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+         
+         <!-- Category Filter Buttons -->
+         <div class="row mb-5">
+            <div class="col-12">
+               <div class="btn-group d-flex flex-wrap justify-content-center" role="group">
+                  <button type="button" class="btn btn-outline-primary active" onclick="CourseGenerator.filterCourses('all')">
+                     <i class="fas fa-th me-2"></i>All Courses
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('automation')">
+                     <i class="fas fa-cogs me-2"></i>Automation
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('programming')">
+                     <i class="fas fa-code me-2"></i>Programming
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('hardware')">
+                     <i class="fas fa-microchip me-2"></i>Hardware
+                  </button>
+               </div>
+            </div>
+         </div>
+         
+         <!-- Courses Grid -->
+         <div id="courses-grid" class="row g-4">
+            <!-- Courses will be dynamically loaded here -->
+         </div>
+         
+         <!-- No Results Message -->
+         <div id="no-results" class="text-center py-5 d-none">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">No courses found</h4>
+            <p class="text-muted">Try adjusting your search or filter criteria</p>
+         </div>
+      </div>
+   </section>
+
+   <!-- Include Footer -->
+   <div id="footer-container"></div>
+   
+   <!-- Bootstrap JS Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Custom JS -->
+   <script src="js/script.js"></script>
+   <script src="js/course-generator.js"></script>
+   
+   <script>
+   // Load header and footer
+   document.addEventListener('DOMContentLoaded', function() {
+       fetch('templates/header.html')
+           .then(response => response.text())
+           .then(html => {
+               document.getElementById('header-container').innerHTML = html;
+           });
+           
+       fetch('templates/footer.html')
+           .then(response => response.text())
+           .then(html => {
+               document.getElementById('footer-container').innerHTML = html;
+           });
+           
+       // Initialize course generator
+       CourseGenerator.loadCourses();
+   });
+   </script>
+</body>
+</html>

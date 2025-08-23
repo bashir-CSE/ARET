@@ -1,0 +1,52 @@
+
+.topnav {
+
+  overflow: hidden;
+
+  
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 4px 14px;
+  text-decoration: none;
+  font-size: 20px;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  text-transform: uppercase;
+  left: 0px;
+  margin: 0px;
+  
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid red;
+}
+
+.topnav a.active {
+  border-bottom: 3px solid red;
+}
+
+#important-message {
+    margin-left: 10px;
+	color: #818181;
+	
+	
+	justify-content: center; 
+	text-align: left;
+	padding: 0rem;
+	cursor: pointer;
+}
+
+#important-message .highlight-text {
+    color: #3090D5;
+	
+		
+	justify-content: center; 
+	text-align: left;
+	padding: 0rem;
+	cursor: pointer;
+}

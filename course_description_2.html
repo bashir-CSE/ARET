@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Internet of Things (IoT) with ESP8266 - ARET</title>
+   
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/bootstrap-style.css">
+</head>
+<body>
+   <!-- Top Bar -->
+   <div class="top-bar bg-primary text-white py-2">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+               <p class="mb-0 d-flex align-items-center"><i class="fas fa-phone-alt me-2"></i> Call Us: +8801750 950 717 (WhatsApp)</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 text-md-end text-sm-start mt-2 mt-sm-0">
+               <p class="mb-0 d-flex align-items-center justify-content-md-end justify-content-start"><i class="fas fa-envelope me-2"></i> info@aretbd.org</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Header -->
+   <header class="header bg-white shadow-sm sticky-top">
+      <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand aret-brand d-flex align-items-center" href="index.html">
+               <img src="images/pic-1.jpg" alt="ARET Logo" class="me-2" style="height: 45px;">
+               <span class="d-none d-sm-inline">Automation Research & Embedded Technologies</span>
+               <span class="d-sm-none">ARET</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html" aria-current="page"><i class="fas fa-home me-1"></i> <span class="d-none d-sm-inline">Home</span></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> <span class="d-none d-sm-inline">About</span></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" href="courses.html"><i class="fas fa-graduation-cap me-1"></i> <span class="d-none d-sm-inline">Courses</span></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> <span class="d-none d-sm-inline">Contact Us</span></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="blog.html"><i class="fas fa-blog me-1"></i> <span class="d-none d-sm-inline">Blog</span></a>
+                  </li>
+               </ul>
+               
+               <div class="d-flex align-items-center social-icons">
+                  <a href="https://wa.me/+8801750950717" target="_blank" class="text-white me-3" aria-label="WhatsApp">
+                     <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a href="https://www.facebook.com/aret7bd" target="_blank" class="text-white me-3" aria-label="Facebook">
+                     <i class="fab fa-facebook"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/company/aretbd/?viewAsMember=true" target="_blank" class="text-white me-3" aria-label="LinkedIn">
+                     <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@ARETBD7" target="_blank" class="text-white" aria-label="YouTube">
+                     <i class="fab fa-youtube" style="color: #FF0000;"></i>
+                  </a>
+               </div>
+            </div>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Certificate Verification Alert -->
+   <div class="container mt-3">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+         <i class="fas fa-certificate me-2"></i>
+         <strong>Certificate Verification:</strong> 
+         <a href="https://script.google.com/macros/s/AKfycbzmm7sHLKgHs7nNnLbBJo875999eUsEMzVHR7cZ8AlRraD7AcUCkH41pOMIndBW2B7jOw/exec" 
+            target="_blank" class="alert-link">Click here to verify certificates</a>
+         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+   </div>
+
+   <!-- Course Details Section -->
+   <section class="playlist-details py-5">
+      <div class="container">
+         <h1 class="heading">Internet of Things (IoT) with ESP8266 node MCU</h1>
+         
+         <div class="row align-items-center mb-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+               <div class="card shadow-sm">
+                  <img src="images/thumb-4.png" class="card-img-top" alt="IoT Training">
+                  <div class="card-body text-center">
+                     <h3 class="card-title">Course Overview</h3>
+                     <p class="card-text">Learn IoT fundamentals using the ESP8266 NodeMCU platform</p>
+                     <div class="d-flex justify-content-center gap-3 mt-3">
+                         <span class="badge bg-primary"><i class="fas fa-clock me-1"></i> 15 Days</span>
+                         <span class="badge bg-success"><i class="fas fa-users me-1"></i> 10 Seats</span>
+                         <span class="badge bg-info"><i class="fas fa-money-bill-wave me-1"></i> BDT 5000.00</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-7">
+               <div class="card shadow-sm p-4">
+                  <h3 class="mb-3">Course Description</h3>
+                  <p class="lead">
+                     "The Internet of Things (IoT) with ESP8266 NodeMCU course introduces participants to IoT fundamentals using the ESP8266 NodeMCU platform. 
+                     <br>It covers sensor integration, data transmission, and cloud communication. Through hands-on projects, students will learn to build IoT systems, control devices remotely, and connect them to the internet for real-time monitoring and automation."
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-4">
+                     <div>
+                         <h5 class="mb-1">Prerequisites:</h5>
+                         <p class="mb-0">Basic understanding of electrical systems, automation, and control systems.</p>
+                     </div>
+                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_OntV7HnMVMFhT0N8fKgLD3bg-sQKCxbw7OkzUmvwmMyYVQ/viewform" 
+                        target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-file-alt me-2"></i>Admission Form
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Course Syllabus Section -->
+   <section class="about py-5 bg-light">
+      <div class="container">
+         <h2 class="heading mb-5">Course Syllabus</h2>
+         
+         <div class="row mb-4">
+            <div class="col-md-6">
+               <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                     <h4 class="card-title text-primary">Course Information</h4>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                           <span><i class="fas fa-book me-2"></i>Course Title</span>
+                           <span class="fw-bold">Internet of Things (IoT)</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                           <span><i class="fas fa-clock me-2"></i>Duration</span>
+                           <span class="fw-bold">15 Days (2 Weeks)</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                           <span><i class="fas fa-users me-2"></i>Total Seats</span>
+                           <span class="fw-bold">10 Seats</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                           <span><i class="fas fa-money-bill-wave me-2"></i>Course Fee</span>
+                           <span class="fw-bold text-success">BDT 5000.00</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                     <h4 class="card-title text-primary">What You'll Learn</h4>
+                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>IoT fundamentals and concepts
+                        </li>
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>ESP8266 NodeMCU programming
+                        </li>
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>Wi-Fi connectivity and networking
+                        </li>
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>Sensor integration and data collection
+                        </li>
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>Cloud platforms and data visualization
+                        </li>
+                        <li class="list-group-item">
+                           <i class="fas fa-check-circle text-success me-2"></i>IoT security and power management
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         <div class="card shadow-sm">
+            <div class="card-body">
+               <h3 class="card-title mb-4">Detailed Syllabus</h3>
+               
+               <div class="accordion" id="syllabusAccordion">
+                  <!-- Day 1 -->
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="heading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                           <span class="badge bg-primary me-2">Day 1</span>
+                           Introduction to IoT and ESP8266
+                        </button>
+                     </h2>
+                     <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#syllabusAccordion">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-book me-2"></i>Theory</h5>
+                                 <ul>
+                                    <li>What is IoT? Applications and Trends</li>
+                                    <li>Introduction to ESP8266 NodeMCU and its features</li>
+                                 </ul>
+                              </div>
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-tools me-2"></i>Practical</h5>
+                                 <ul>
+                                    <li>Setting up the development environment (Arduino IDE, PlatformIO)</li>
+                                    <li>Installing necessary libraries for ESP8266</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Day 2 -->
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="heading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                           <span class="badge bg-primary me-2">Day 2</span>
+                           ESP8266 Pinout and Basic Setup
+                        </button>
+                     </h2>
+                     <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-book me-2"></i>Theory</h5>
+                                 <ul>
+                                    <li>Understanding the NodeMCU pinout and features</li>
+                                    <li>Basics of GPIO control (Digital Inputs/Outputs)</li>
+                                 </ul>
+                              </div>
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-tools me-2"></i>Practical</h5>
+                                 <ul>
+                                    <li>Blinking an LED with ESP8266</li>
+                                    <li>Controlling LEDs with push buttons</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Day 3 -->
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="heading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                           <span class="badge bg-primary me-2">Day 3</span>
+                           Introduction to Networking and Wi-Fi Connectivity
+                        </button>
+                     </h2>
+                     <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-book me-2"></i>Theory</h5>
+                                 <ul>
+                                    <li>How ESP8266 connects to Wi-Fi</li>
+                                    <li>Overview of TCP/IP, HTTP protocols</li>
+                                 </ul>
+                              </div>
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-tools me-2"></i>Practical</h5>
+                                 <ul>
+                                    <li>Connecting ESP8266 to Wi-Fi</li>
+                                    <li>Testing connectivity with Wi-Fi status indicator</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Day 4 -->
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="heading4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                           <span class="badge bg-primary me-2">Day 4</span>
+                           Web Servers on ESP8266
+                        </button>
+                     </h2>
+                     <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-book me-2"></i>Theory</h5>
+                                 <ul>
+                                    <li>Basics of Web Servers in IoT applications</li>
+                                    <li>Hosting a web server on ESP8266</li>
+                                 </ul>
+                              </div>
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-tools me-2"></i>Practical</h5>
+                                 <ul>
+                                    <li>Create a simple web server on ESP8266 to control LEDs</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- Day 5 -->
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="heading5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                           <span class="badge bg-primary me-2">Day 5</span>
+                           Handling Web Requests
+                        </button>
+                     </h2>
+                     <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                        <div class="accordion-body">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-book me-2"></i>Theory</h5>
+                                 <ul>
+                                    <li>HTTP GET and POST methods</li>
+                                    <li>How IoT devices communicate with web apps</li>
+                                 </ul>
+                              </div>
+                              <div class="col-md-6">
+                                 <h5><i class="fas fa-tools me-2"></i>Practical</h5>
+                                 <ul>
+                                    <li>Send and receive data from a web interface to ESP8266</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <!-- More days would follow the same pattern -->
+               </div>
+               
+               <div class="alert alert-success mt-4">
+                  <i class="fas fa-graduation-cap me-2"></i>
+                  <strong>Certificate:</strong> Get the certificate upon successful completion of the course.
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Course Videos Section -->
+   <section class="playlist-videos py-5">
+      <div class="container">
+         <h2 class="heading mb-5">Course Videos</h2>
+         
+         <div class="row g-4">
+            <div class="col-md-4">
+               <div class="card h-100 shadow-sm video-card">
+                  <div class="position-relative">
+                     <img src="images/post-1.webp" class="card-img-top" alt="IoT Tutorial Part 1">
+                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-black bg-opacity-50">
+                        <a href="watch-video.html" class="btn btn-light btn-lg">
+                           <i class="fas fa-play me-2"></i>Watch
+                        </a>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">IoT Tutorial (Part 01)</h5>
+                     <p class="card-text">Introduction to IoT and ESP8266 basics</p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-md-4">
+               <div class="card h-100 shadow-sm video-card">
+                  <div class="position-relative">
+                     <img src="images/post-1.webp" class="card-img-top" alt="IoT Tutorial Part 2">
+                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-black bg-opacity-50">
+                        <a href="watch-video.html" class="btn btn-light btn-lg">
+                           <i class="fas fa-play me-2"></i>Watch
+                        </a>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">IoT Tutorial (Part 02)</h5>
+                     <p class="card-text">Wi-Fi connectivity and web servers</p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-md-4">
+               <div class="card h-100 shadow-sm video-card">
+                  <div class="position-relative">
+                     <img src="images/post-1.webp" class="card-img-top" alt="IoT Tutorial Part 3">
+                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-black bg-opacity-50">
+                        <a href="watch-video.html" class="btn btn-light btn-lg">
+                           <i class="fas fa-play me-2"></i>Watch
+                        </a>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">IoT Tutorial (Part 03)</h5>
+                     <p class="card-text">Sensor integration and cloud platforms</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Footer -->
+   <footer class="footer bg-dark text-white py-3">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+               <p class="mb-0">&copy; copyright @ 2015-24 by <span style="font-size: 16px;">aretbd.org</span> | all rights reserved!</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+               <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for better learning</p>
+            </div>
+         </div>
+      </div>
+   </footer>
+
+   <!-- Bootstrap JS Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Custom JS -->
+   <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Contact Us - ARET</title>
+   
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/bootstrap-style.css">
+</head>
+<body>
+   <!-- Include Header -->
+   <div id="header-container"></div>
+   
+   <!-- Certificate Verification Alert -->
+   <div class="container mt-3">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+         <i class="fas fa-certificate me-2"></i>
+         <strong>Certificate Verification:</strong> 
+         <a href="https://script.google.com/macros/s/AKfycbzmm7sHLKgHs7nNnLbBJo875999eUsEMzVHR7cZ8AlRraD7AcUCkH41pOMIndBW2B7jOw/exec" 
+            target="_blank" class="alert-link">Click here to verify certificates</a>
+         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+   </div>
+
+   <!-- Contact Section -->
+   <section class="contact py-5 bg-light">
+      <div class="container">
+         <h1 class="heading text-center mb-5">Get In Touch</h1>
+         
+         <div class="row align-items-center mb-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+               <img src="images/contact-img.svg" alt="Contact Us" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-7">
+               <div class="card shadow-sm p-4">
+                  <h3 class="mb-4">Send Us a Message</h3>
+                  <form id="contactForm" action="" method="post">
+                     <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required maxlength="50">
+                     </div>
+                     <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required maxlength="50">
+                     </div>
+                     <div class="mb-3">
+                        <label for="number" class="form-label">Your Phone Number</label>
+                        <input type="tel" class="form-control" id="number" name="number" placeholder="Enter your number" required maxlength="50">
+                     </div>
+                     <div class="mb-4">
+                        <label for="msg" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="msg" name="msg" placeholder="Enter your message" required maxlength="1000" rows="5"></textarea>
+                     </div>
+                     <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+               <div class="card h-100 text-center p-4 shadow-sm">
+                  <div class="card-body">
+                     <i class="fas fa-phone-alt text-primary mb-3" style="font-size: 2.5rem;"></i>
+                     <h5 class="card-title">Phone Number</h5>
+                     <p class="card-text">
+                        <a href="tel:+8801750950717" class="text-decoration-none">+8801750950717 (WhatsApp)</a><br>
+                        <a href="tel:+8801552666653" class="text-decoration-none">+8801552666653</a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+               <div class="card h-100 text-center p-4 shadow-sm">
+                  <div class="card-body">
+                     <i class="fas fa-envelope text-primary mb-3" style="font-size: 2.5rem;"></i>
+                     <h5 class="card-title">Email Address</h5>
+                     <p class="card-text">
+                        <a href="mailto:info@aretbd.org" class="text-decoration-none">info@aretbd.org</a><br>
+                        <a href="mailto:aret7bd@gmail.com" class="text-decoration-none">aret7bd@gmail.com</a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+               <div class="card h-100 text-center p-4 shadow-sm">
+                  <div class="card-body">
+                     <i class="fas fa-map-marker-alt text-primary mb-3" style="font-size: 2.5rem;"></i>
+                     <h5 class="card-title">Office Address #01</h5>
+                     <p class="card-text">
+                        Boroil(Ranigong Mor), HSTU road, Dinajpur-5200
+                     </p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+               <div class="card h-100 text-center p-4 shadow-sm">
+                  <div class="card-body">
+                     <i class="fas fa-map-marker-alt text-primary mb-3" style="font-size: 2.5rem;"></i>
+                     <h5 class="card-title">Office Address #02</h5>
+                     <p class="card-text">
+                        Dhaka (opening very soon)
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Include Footer -->
+   <div id="footer-container"></div>
+   
+   <!-- Bootstrap JS Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Custom JS -->
+   <script src="js/script.js"></script>
+   <script src="js/course-generator.js"></script>
+   
+   <script>
+   // Load header and footer
+   document.addEventListener('DOMContentLoaded', function() {
+       fetch('templates/header.html')
+           .then(response => response.text())
+           .then(html => {
+               document.getElementById('header-container').innerHTML = html;
+           });
+           
+       fetch('templates/footer.html')
+           .then(response => response.text())
+           .then(html => {
+               document.getElementById('footer-container').innerHTML = html;
+           });
+   });
+   
+   // Form validation
+   document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contactForm');
+      
+      if (contactForm) {
+         contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const number = document.getElementById('number').value.trim();
+            const msg = document.getElementById('msg').value.trim();
+            
+            if (!name || !email || !number || !msg) {
+               showNotification('Please fill in all fields', 'warning');
+               return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+               showNotification('Please enter a valid email address', 'warning');
+               return;
+            }
+            
+            // Phone number validation (basic)
+            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+            if (!phoneRegex.test(number)) {
+               showNotification('Please enter a valid phone number', 'warning');
+               return;
+            }
+            
+            // If validation passes, show success message
+            showNotification('Thank you for your message! We will get back to you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+         });
+      }
+   });
+   
+   // Notification function
+   function showNotification(message, type) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3`;
+      alertDiv.style.zIndex = '9999';
+      alertDiv.innerHTML = `
+         ${message}
+         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      
+      document.body.appendChild(alertDiv);
+      
+      // Auto remove after 5 seconds
+      setTimeout(() => {
+         alertDiv.remove();
+      }, 5000);
+   }
+   </script>
+</body>
+</html>

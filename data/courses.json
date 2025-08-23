@@ -1,0 +1,166 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Industrial-Based PLC Training",
+      "subtitle": "(Siemens s7-200 and Mitsubishi FX3u)",
+      "description": "Comprehensive training on industrial PLC programming with hands-on experience on Siemens and Mitsubishi PLCs.",
+      "image": "images/thumb-5.png",
+      "price": 4500,
+      "originalPrice": 10000,
+      "category": "automation",
+      "duration": "4 weeks",
+      "level": "Intermediate",
+      "instructor": "Expert Industrial Trainer",
+      "features": [
+        "Hands-on PLC programming",
+        "Real-world industrial applications",
+        "Certificate of completion",
+        "Lifetime access to materials"
+      ],
+      "syllabus": [
+        "Introduction to PLCs",
+        "Siemens S7-200 Programming",
+        "Mitsubishi FX3u Programming",
+        "HMI Design",
+        "Troubleshooting and Maintenance"
+      ],
+      "enrollmentUrl": "course_description_1.html"
+    },
+    {
+      "id": 2,
+      "title": "Electrical Engineering Applications In Textile Machines",
+      "subtitle": "",
+      "description": "Learn how electrical engineering principles are applied in modern textile machinery and automation systems.",
+      "image": "images/thumb-9.png",
+      "price": 4000,
+      "originalPrice": 8000,
+      "category": "hardware",
+      "duration": "3 weeks",
+      "level": "Intermediate",
+      "instructor": "Textile Engineering Expert",
+      "features": [
+        "Textile machine electrical systems",
+        "Motor control applications",
+        "Power distribution systems",
+        "Safety standards and practices"
+      ],
+      "syllabus": [
+        "Textile machine overview",
+        "Electrical control systems",
+        "Motor drives and controls",
+        "PLC integration",
+        "Maintenance procedures"
+      ],
+      "enrollmentUrl": "course_description_9.html"
+    },
+    {
+      "id": 3,
+      "title": "Internet of Things (IoT) with ESP8266 node MCU",
+      "subtitle": "",
+      "description": "Master IoT development using ESP8266 nodeMCU with practical projects and real-world applications.",
+      "image": "images/thumb-4.png",
+      "price": 5000,
+      "originalPrice": 9500,
+      "category": "programming",
+      "duration": "5 weeks",
+      "level": "Beginner to Intermediate",
+      "instructor": "IoT Development Expert",
+      "features": [
+        "Hands-on IoT projects",
+        "Cloud integration",
+        "Mobile app development",
+        "Certificate of completion"
+      ],
+      "syllabus": [
+        "Introduction to IoT",
+        "ESP8266 Programming",
+        "Sensor interfacing",
+        "Cloud platforms",
+        "Mobile app development"
+      ],
+      "enrollmentUrl": "course_description_2.html"
+    },
+    {
+      "id": 4,
+      "title": "Instrumentation and control engineering",
+      "subtitle": "",
+      "description": "Comprehensive course on instrumentation and control systems for industrial applications.",
+      "image": "images/thumb-8.jpg",
+      "price": 4000,
+      "originalPrice": 8000,
+      "category": "automation",
+      "duration": "4 weeks",
+      "level": "Intermediate",
+      "instructor": "Control Systems Engineer",
+      "features": [
+        "Industrial instrumentation",
+        "Control system design",
+        "PID tuning",
+        "SCADA systems"
+      ],
+      "syllabus": [
+        "Instrumentation fundamentals",
+        "Sensor and transducer technology",
+        "Control system design",
+        "PID controllers",
+        "SCADA systems"
+      ],
+      "enrollmentUrl": "course_description_3.html"
+    },
+    {
+      "id": 5,
+      "title": "Arduino programming",
+      "subtitle": "",
+      "description": "Learn Arduino programming from basics to advanced with practical projects and applications.",
+      "image": "images/thumb-1.png",
+      "price": 3500,
+      "originalPrice": 8500,
+      "category": "programming",
+      "duration": "3 weeks",
+      "level": "Beginner",
+      "instructor": "Embedded Systems Expert",
+      "features": [
+        "Hands-on Arduino projects",
+        "C/C++ programming",
+        "Sensor interfacing",
+        "Certificate of completion"
+      ],
+      "syllabus": [
+        "Arduino basics",
+        "C/C++ for Arduino",
+        "Digital and analog I/O",
+        "Sensor interfacing",
+        "Project development"
+      ],
+      "enrollmentUrl": "course_description_4.html"
+    },
+    {
+      "id": 6,
+      "title": "Arduino programming with trainer kit free",
+      "subtitle": "",
+      "description": "Complete Arduino programming course with a free trainer kit included for hands-on learning.",
+      "image": "images/thumb-2.jpg",
+      "price": 5500,
+      "originalPrice": 12000,
+      "category": "programming",
+      "duration": "4 weeks",
+      "level": "Beginner to Intermediate",
+      "instructor": "Arduino Development Expert",
+      "features": [
+        "Free trainer kit included",
+        "Comprehensive project coverage",
+        "C/C++ programming",
+        "Certificate of completion"
+      ],
+      "syllabus": [
+        "Arduino basics and setup",
+        "C/C++ programming",
+        "Digital and analog I/O",
+        "Advanced sensors and modules",
+        "Complete project development"
+      ],
+      "enrollmentUrl": "course_description_5.html"
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+/* Custom Bootstrap Styles for ARET Website */
+
+/* Global Variables */
+:root {
+   --main-color: #8e44ad;
+   --red: #e74c3c;
+   --orange: #f39c12;
+   --light-color: #888;
+   --light-bg: #eee;
+   --black: #2c3e50;
+   --white: #fff;
+   --border: .1rem solid rgba(0,0,0,.2);
+   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Custom Font Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Body Styles */
+body {
+   font-family: 'Roboto', sans-serif;
+   background-color: var(--light-bg);
+   color: var(--black);
+   line-height: 1.6;
+}
+
+/* Custom Heading Styles */
+.heading {
+   font-size: 2.5rem;
+   color: var(--black);
+   margin-bottom: 2.5rem;
+   border-bottom: var(--border);
+   padding-bottom: 1.5rem;
+   text-transform: capitalize;
+   position: relative;
+}
+
+.heading::after {
+   content: '';
+   position: absolute;
+   bottom: -1px;
+   left: 0;
+   width: 60px;
+   height: 3px;
+   background-color: var(--main-color);
+}
+
+/* ARET Brand Styles */
+.aret-brand {
+   font-size: 1.8rem;
+   font-weight: 700;
+   color: var(--black);
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+.aret-brand:hover {
+   color: var(--main-color);
+}
+
+/* Top Bar Styles */
+.top-bar {
+   background-color: #0056b3;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-bar p {
+   margin-bottom: 0;
+   font-size: 0.9rem;
+}
+
+/* Header Styles */
+.header {
+   background-color: var(--white);
+   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Social Icons */
+.social-icons a {
+   transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+   transform: translateY(-3px);
+}
+
+/* Card Styles */
+.card {
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+   border-radius: 10px 10px 0 0;
+   height: 200px;
+   object-fit: cover;
+}
+
+.card-body {
+   padding: 1.5rem;
+}
+
+.card-title {
+   font-size: 1.25rem;
+   font-weight: 600;
+   margin-bottom: 1rem;
+   color: var(--black);
+}
+
+.card-text {
+   color: var(--light-color);
+   font-size: 0.95rem;
+}
+
+/* Button Styles */
+.btn {
+   border-radius: 5px;
+   font-weight: 600;
+   padding: 0.6rem 1.5rem;
+   transition: all 0.3s ease;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+}
+
+.btn-primary {
+   background-color: var(--main-color);
+   border: none;
+}
+
+.btn-primary:hover {
+   background-color: #7d3c98;
+   transform: translateY(-2px);
+   box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+}
+
+.btn-outline-primary {
+   border: 2px solid var(--main-color);
+   color: var(--main-color);
+}
+
+.btn-outline-primary:hover {
+   background-color: var(--main-color);
+   border-color: var(--main-color);
+   transform: translateY(-2px);
+}
+
+/* Alert Styles */
+.alert {
+   border-radius: 8px;
+   border: none;
+}
+
+.alert-info {
+   background-color: #d1ecf1;
+   color: #0c5460;
+}
+
+/* Form Styles */
+.form-control {
+   border-radius: 5px;
+   border: 1px solid #ddd;
+   padding: 0.75rem 1rem;
+   font-size: 1rem;
+   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+   border-color: var(--main-color);
+   box-shadow: 0 0 0 0.2rem rgba(142, 68, 173, 0.25);
+}
+
+/* Navigation Styles */
+.navbar {
+   padding: 0.75rem 0;
+   background-color: var(--white) !important;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.navbar-brand {
+   font-weight: 700;
+   font-size: 1.5rem;
+   color: var(--black) !important;
+   transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+   color: var(--main-color) !important;
+}
+
+.navbar-brand img {
+   max-height: 45px;
+   transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+   transform: scale(1.05);
+}
+
+.navbar-toggler {
+   border: none;
+   padding: 0.25rem 0.5rem;
+   border-radius: 4px;
+   transition: background-color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+   background-color: rgba(142, 68, 173, 0.1);
+}
+
+.navbar-toggler:focus {
+   box-shadow: none;
+}
+
+.navbar-nav {
+   align-items: center;
+}
+
+.nav-link {
+   font-weight: 500;
+   margin: 0 0.25rem;
+   padding: 0.5rem 1rem;
+   border-radius: 6px;
+   transition: all 0.3s ease;
+   color: var(--black) !important;
+   position: relative;
+}
+
+.nav-link:hover {
+   background-color: rgba(142, 68, 173, 0.08);
+   color: var(--main-color) !important;
+}
+
+.nav-link.active {
+   color: var(--main-color) !important;
+   background-color: rgba(142, 68, 173, 0.08);
+}
+
+.nav-link.active::after {
+   content: '';
+   position: absolute;
+   bottom: -1px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80%;
+   height: 3px;
+   background-color: var(--main-color);
+   border-radius: 2px;
+}
+
+.nav-link i {
+   margin-right: 0.5rem;
+   font-size: 1.1rem;
+}
+
+/* Social Icons */
+.social-icon {
+   transition: all 0.3s ease;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.social-icon:hover {
+   transform: translateY(-3px);
+   background-color: rgba(142, 68, 173, 0.1);
+}
+
+.social-icon i {
+   transition: transform 0.3s ease;
+}
+
+.social-icon:hover i {
+   transform: scale(1.1);
+}
+
+/* Mobile Navigation */
+@media (max-width: 991px) {
+   .navbar-nav {
+      margin-top: 1rem;
+   }
+   
+   .nav-link {
+      margin: 0.25rem 0;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+   }
+   
+   .social-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 0.25rem;
+   }
+}
+
+/* Section Styles */
+section {
+   padding: 4rem 0;
+}
+
+.reviews {
+   background-color: var(--light-bg);
+}
+
+.courses {
+   background-color: var(--white);
+}
+
+/* Testimonial Styles */
+.student img {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-right: 1rem;
+}
+
+.stars {
+   color: var(--orange);
+   margin-top: 0.5rem;
+}
+
+/* Price Badge Styles */
+.badge {
+   font-size: 1rem;
+   padding: 0.5rem 1rem;
+   border-radius: 20px;
+}
+
+/* Footer Styles */
+.footer {
+   background-color: var(--black);
+   color: var(--white);
+   padding: 2rem 0;
+   margin-top: 3rem;
+}
+
+.footer p {
+   margin-bottom: 0;
+   font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+   .heading {
+      font-size: 2rem;
+   }
+   
+   .card-img-top {
+      height: 150px;
+   }
+   
+   .navbar-brand span {
+      display: none;
+   }
+   
+   .navbar-brand::after {
+      content: 'ARET';
+   }
+}
+
+/* Utility Classes */
+.text-gradient {
+   background: var(--primary-gradient);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+}
+
+.shadow-hover {
+   transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Animation Classes */
+.fade-in {
+   animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Loading Spinner */
+.spinner-border {
+   width: 1.5rem;
+   height: 1.5rem;
+   border-width: 0.2em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+   width: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--main-color);
+   border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #7d3c98;
+}
+
+/* Print Styles */
+@media print {
+   .header, .footer, .top-bar, .btn {
+      display: none;
+   }
+   
+   body {
+      font-size: 12pt;
+      line-height: 1.4;
+   }
+   
+   .card {
+      border: 1px solid #ddd;
+      box-shadow: none;
+   }
+}
+
+/* Accessibility Improvements */
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   white-space: nowrap;
+   border: 0;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+   outline: 2px solid var(--main-color);
+   outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+   position: absolute;
+   top: -40px;
+   left: 0;
+   background: var(--black);
+   color: var(--white);
+   padding: 8px;
+   z-index: 100;
+}
+
+.skip-link:focus {
+   top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+   .card {
+      border: 2px solid var(--black);
+   }
+   
+   .btn {
+      border: 2px solid currentColor;
+   }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+   * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+   }
+}
