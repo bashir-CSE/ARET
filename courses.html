@@ -19,62 +19,12 @@
    <!-- Include Header -->
    <div id="header-container"></div>
    
-   <!-- Certificate Verification Alert -->
-   <div class="container mt-3">
-      <div class="alert alert-info alert-dismissible fade show" role="alert">
-         <i class="fas fa-certificate me-2"></i>
-         <strong>Certificate Verification:</strong> 
-         <a href="https://script.google.com/macros/s/AKfycbzmm7sHLKgHs7nNnLbBJo875999eUsEMzVHR7cZ8AlRraD7AcUCkH41pOMIndBW2B7jOw/exec" 
-            target="_blank" class="alert-link">Click here to verify certificates</a>
-         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      </div>
-   </div>
+
 
    <!-- Courses Section -->
    <section class="courses py-5 bg-light">
       <div class="container">
          <h1 class="heading text-center mb-5">Our Courses</h1>
-         
-         <!-- Search and Filter Section -->
-         <div class="row mb-5">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-               <div class="input-group">
-                  <span class="input-group-text"><i class="fas fa-search"></i></span>
-                  <input type="text" class="form-control" id="course-search" placeholder="Search courses...">
-               </div>
-            </div>
-            <div class="col-lg-6">
-               <div class="d-flex justify-content-lg-end">
-                  <select class="form-select" id="sort-courses" onchange="CourseGenerator.sortCourses(this.value)">
-                     <option value="default">Sort by</option>
-                     <option value="price-low">Price: Low to High</option>
-                     <option value="price-high">Price: High to Low</option>
-                     <option value="name">Name (A-Z)</option>
-                     <option value="duration">Duration</option>
-                  </select>
-               </div>
-            </div>
-         </div>
-         
-         <!-- Category Filter Buttons -->
-         <div class="row mb-5">
-            <div class="col-12">
-               <div class="btn-group d-flex flex-wrap justify-content-center" role="group">
-                  <button type="button" class="btn btn-outline-primary active" onclick="CourseGenerator.filterCourses('all')">
-                     <i class="fas fa-th me-2"></i>All Courses
-                  </button>
-                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('automation')">
-                     <i class="fas fa-cogs me-2"></i>Automation
-                  </button>
-                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('programming')">
-                     <i class="fas fa-code me-2"></i>Programming
-                  </button>
-                  <button type="button" class="btn btn-outline-primary" onclick="CourseGenerator.filterCourses('hardware')">
-                     <i class="fas fa-microchip me-2"></i>Hardware
-                  </button>
-               </div>
-            </div>
-         </div>
          
          <!-- Courses Grid -->
          <div id="courses-grid" class="row g-4">

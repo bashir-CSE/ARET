@@ -19,16 +19,18 @@
    <!-- Include Header -->
    <div id="header-container"></div>
    
-   <!-- Certificate Verification Alert -->
-   <div class="container mt-3">
-      <div class="alert alert-info alert-dismissible fade show" role="alert">
-         <i class="fas fa-certificate me-2"></i>
-         <strong>Certificate Verification:</strong> 
-         <a href="https://script.google.com/macros/s/AKfycbzmm7sHLKgHs7nNnLbBJo875999eUsEMzVHR7cZ8AlRraD7AcUCkH41pOMIndBW2B7jOw/exec" 
-            target="_blank" class="alert-link">Click here to verify certificates</a>
-         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   <!-- Featured Courses Section -->
+   <section class="courses py-5 bg-light">
+      <div class="container">
+         <h1 class="heading text-center mb-5">Featured Courses</h1>
+         <div id="courses-grid" class="row g-4">
+            <!-- Course cards will be dynamically generated here -->
+         </div>
+         <div class="text-center mt-4">
+            <a href="courses.html" class="btn btn-outline-primary btn-lg">View All Courses</a>
+         </div>
       </div>
-   </div>
+   </section>
 
    <!-- Why Choose ARET Section -->
    <section class="reviews py-5 bg-light">
@@ -89,19 +91,6 @@
       </div>
    </section>
 
-   <!-- Featured Courses Section -->
-   <section class="courses py-5 bg-light">
-      <div class="container">
-         <h1 class="heading text-center mb-5">Featured Courses</h1>
-         <div id="courses-grid" class="row g-4">
-            <!-- Course cards will be dynamically generated here -->
-         </div>
-         <div class="text-center mt-4">
-            <a href="courses.html" class="btn btn-outline-primary btn-lg">View All Courses</a>
-         </div>
-      </div>
-   </section>
-
    <!-- Include Footer -->
    <div id="footer-container"></div>
    
@@ -115,16 +104,28 @@
    <script>
    // Load header and footer
    document.addEventListener('DOMContentLoaded', function() {
+       // Load header first
        fetch('templates/header.html')
            .then(response => response.text())
            .then(html => {
                document.getElementById('header-container').innerHTML = html;
+               // Initialize navigation after header is loaded
+               if (typeof setActiveNavLink === 'function') {
+                   setActiveNavLink();
+               }
+           })
+           .catch(error => {
+               console.error('Error loading header:', error);
            });
            
+       // Load footer
        fetch('templates/footer.html')
            .then(response => response.text())
            .then(html => {
                document.getElementById('footer-container').innerHTML = html;
+           })
+           .catch(error => {
+               console.error('Error loading footer:', error);
            });
            
        // Load featured courses
@@ -135,9 +136,34 @@
                const coursesGrid = document.getElementById('courses-grid');
                
                if (coursesGrid) {
-                   courses.forEach(course => {
+                   courses.forEach((course, index) => {
                        const courseCard = createCourseCard(course);
                        coursesGrid.appendChild(courseCard);
+                       
+                       // Initialize image loading for each card
+                       const img = courseCard.querySelector('img');
+                       if (img) {
+                           img.onload = function() {
+                               this.style.opacity = '1';
+                               this.classList.add('loaded');
+                           };
+                           img.onerror = function() {
+                               console.error('Failed to load image:', this.src);
+                               // Try alternative image paths
+                               if (this.src.includes('thumb-')) {
+                                   this.src = 'images/course-placeholder.svg';
+                               } else {
+                                   this.src = 'https://via.placeholder.com/300x200/6c5ce7/ffffff?text=Course+Image';
+                               }
+                               this.style.opacity = '1';
+                           };
+                           
+                           // Check if image is already loaded (cached)
+                           if (img.complete && img.naturalHeight !== 0) {
+                               img.style.opacity = '1';
+                               img.classList.add('loaded');
+                           }
+                       }
                    });
                }
            })
@@ -156,7 +182,7 @@
        col.innerHTML = `
            <div class="card h-100 shadow-sm course-card">
                <div class="position-relative">
-                   <img src="${course.image}" class="card-img-top" alt="${course.title}" loading="lazy">
+                   <img src="${course.image}" class="card-img-top" alt="${course.title}" loading="lazy" style="opacity: 0; transition: opacity 0.3s ease;">
                    ${discount > 0 ? `<span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 rounded m-2">${discount}% OFF</span>` : ''}
                    <span class="position-absolute bottom-0 start-0 bg-primary text-white px-2 py-1 rounded m-2">${course.level}</span>
                </div>
@@ -177,11 +203,52 @@
                        <small class="text-muted">
                            <i class="fas fa-user-tie me-1"></i> ${course.instructor}
                        </small>
-                       <a href="${course.enrollmentUrl}" class="btn btn-primary w-100">View Details</a>
+                       <a href="${course.enrollmentUrl}" class="btn btn-primary btn-sm">View Details</a>
                    </div>
                </div>
            </div>
        `;
+       
+       // Initialize enhanced image loading with shimmering effect
+       const img = col.querySelector('img');
+       if (img) {
+           // Add shimmering effect while loading
+           img.style.backgroundImage = 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)';
+           img.style.backgroundSize = '200% 100%';
+           img.style.animation = 'loading 1.5s infinite';
+           
+           img.onload = function() {
+               // Remove loading animation and show image
+               this.style.backgroundImage = '';
+               this.style.animation = '';
+               this.style.opacity = '1';
+               this.classList.add('loaded');
+               console.log('Image loaded successfully:', this.src);
+           };
+           
+           img.onerror = function() {
+               console.error('Failed to load image:', this.src);
+               // Try alternative image paths with cascading fallbacks
+               if (this.src.includes('thumb-') && !this.src.includes('course-placeholder')) {
+                   this.src = 'images/course-placeholder.svg';
+               } else if (!this.src.includes('placeholder')) {
+                   this.src = 'https://via.placeholder.com/300x200/6c5ce7/ffffff?text=Course+Image';
+               } else {
+                   // Final fallback - remove loading animation and show placeholder background
+                   this.style.backgroundImage = 'linear-gradient(135deg, #6c5ce7 0%, #a777e3 100%)';
+                   this.style.animation = '';
+               }
+               this.style.opacity = '1';
+           };
+           
+           // Check if image is already loaded (cached)
+           if (img.complete && img.naturalHeight !== 0) {
+               img.style.backgroundImage = '';
+               img.style.animation = '';
+               img.style.opacity = '1';
+               img.classList.add('loaded');
+           }
+       }
        
        return col;
    }
@@ -189,9 +256,9 @@
    // Format currency function
    function formatCurrency(amount) {
        return new Intl.NumberFormat('en-BD', {
-           style: 'currency',
-           currency: 'BDT',
-           minimumFractionDigits: 2
+           style: 'decimal',
+           minimumFractionDigits: 0,
+           maximumFractionDigits: 0
        }).format(amount);
    }
    </script>

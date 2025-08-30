@@ -59,16 +59,14 @@ This project has been redesigned using Bootstrap 5 and Font Awesome icons to cre
 ### Sections
 1. **Top Bar**: Contact information and WhatsApp link
 2. **Header**: Logo, navigation, and social media links
-3. **Certificate Verification**: Alert with dismiss functionality
-4. **Why Choose ARET**: Feature cards with icons
-5. **Skills Quote**: Highlighted mission statement
-6. **Skill Development Programme**: Course cards with pricing
-7. **Footer**: Copyright information
+3. **Why Choose ARET**: Feature cards with icons
+4. **Skills Quote**: Highlighted mission statement
+5. **Skill Development Programme**: Course cards with pricing
+6. **Footer**: Copyright information
 
 ### Interactive Elements
 - Hover effects on cards and buttons
 - Smooth scrolling to sections
-- Auto-dismissing certificate alert
 - Mobile menu toggle
 
 ## Browser Compatibility

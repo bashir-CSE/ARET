@@ -2,6 +2,15 @@
 
 // Initialize document when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Add page transition effect
+    document.body.classList.add('page-transition');
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
+    
+    // Initialize image loading animations
+    initializeImageLoading();
+    
     // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -14,41 +23,276 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Popover(popoverTriggerEl);
     });
     
-    // Add smooth scrolling for anchor links
+    // Initialize navigation features
+    initializeNavigation();
+    
+    // Initialize back to top button
+    initializeBackToTop();
+    
+    // Set active navigation link
+    setActiveNavLink();
+    
+    // Add smooth scrolling for all anchor links and improved implementation
+    initializeSmoothScrolling();
+    
+    // Add animation to elements when they come into view
+    initializeScrollAnimations();
+});
+
+// Initialize Smooth Scrolling
+function initializeSmoothScrolling() {
+    // Enhanced smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                // Calculate offset for fixed header
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                
+                // Use both methods for better browser support
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback for older browsers
+                    smoothScrollTo(targetPosition, 800);
+                }
             }
         });
     });
     
-    // Add animation to elements when they come into view
+    // Smooth scrolling for internal page links
+    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            const [page, hash] = href.split('#');
+            
+            if (hash && window.location.pathname.includes(page)) {
+                e.preventDefault();
+                const target = document.getElementById(hash);
+                if (target) {
+                    const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Smooth scroll fallback for older browsers
+function smoothScrollTo(targetPosition, duration) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+    
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+    
+    // Easing function for smooth animation
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+    
+    requestAnimationFrame(animation);
+}
+
+// Initialize Scroll Animations
+function initializeScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                // Remove initial hidden state
+                entry.target.style.opacity = '';
+                entry.target.style.transform = '';
+                
+                // Add animation classes with staggered timing
+                setTimeout(() => {
+                    entry.target.classList.add('fade-in');
+                    
+                    // Add specific animations based on element type
+                    if (entry.target.classList.contains('card')) {
+                        entry.target.classList.add('scale-in');
+                    }
+                    
+                    if (entry.target.tagName === 'SECTION') {
+                        entry.target.classList.add('slide-in-left');
+                    }
+                }, index * 100);
+                
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe all cards and sections
-    document.querySelectorAll('.card, section').forEach(el => {
+    // Observe elements for animation
+    const elementsToAnimate = document.querySelectorAll('.card, section, .btn-lg');
+    elementsToAnimate.forEach((el, index) => {
+        // Set initial state only if element is not in viewport
+        const rect = el.getBoundingClientRect();
+        if (rect.top > window.innerHeight) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+        }
+        
         observer.observe(el);
+        
+        // Add stagger classes for CSS animations
+        if (index < 5) {
+            el.classList.add(`stagger-${index + 1}`);
+        }
     });
-});
+    
+    // Enhanced hover effects for interactive elements
+    document.querySelectorAll('.card, .btn, .nav-link').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('animating')) {
+                this.style.transition = 'transform 0.3s ease';
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            }
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('animating')) {
+                this.style.transform = '';
+            }
+        });
+    });
+}
+
+// Initialize Image Loading Animations
+function initializeImageLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                });
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+    
+    // Handle images that are already loaded
+    document.querySelectorAll('img').forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+    });
+}
+
+// Initialize Navigation Features
+function initializeNavigation() {
+    // Add click tracking to navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            analytics.trackInteraction(this, 'navigation_click');
+        });
+    });
+}
+
+// Set Active Navigation Link
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        // Check if link matches current page
+        const href = link.getAttribute('href');
+        if (href === currentPage || 
+            (currentPage === '' && href === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Initialize Back to Top Button
+function initializeBackToTop() {
+    // Create back to top button
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopBtn.setAttribute('aria-label', 'Back to top');
+    backToTopBtn.setAttribute('type', 'button');
+    document.body.appendChild(backToTopBtn);
+    
+    // Show/hide button based on scroll position with throttling
+    let ticking = false;
+    
+    function updateBackToTopButton() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateBackToTopButton);
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Enhanced smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', function() {
+        // Add visual feedback
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+        
+        // Multiple scroll methods for better browser support
+        if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // Fallback smooth scroll
+            smoothScrollTo(0, 800);
+        }
+        
+        // Track analytics
+        if (typeof analytics !== 'undefined') {
+            analytics.track('back_to_top_click');
+        }
+    });
+}
 
 // Utility Functions
 
@@ -240,39 +484,6 @@ const formValidation = {
     }
 };
 
-// Dark Mode Toggle
-const darkMode = {
-    init: () => {
-        const isDark = storage.get('darkMode') || false;
-        if (isDark) {
-            document.body.classList.add('dark-mode');
-        }
-        
-        // Add toggle button if it doesn't exist
-        if (!document.getElementById('darkModeToggle')) {
-            const toggle = document.createElement('button');
-            toggle.id = 'darkModeToggle';
-            toggle.className = 'btn btn-sm position-fixed bottom-0 end-0 m-3';
-            toggle.innerHTML = '<i class="fas fa-moon"></i>';
-            toggle.style.zIndex = '9999';
-            toggle.addEventListener('click', darkMode.toggle);
-            document.body.appendChild(toggle);
-        }
-    },
-    
-    toggle: () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        storage.set('darkMode', isDark);
-        
-        const icon = document.querySelector('#darkModeToggle i');
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    }
-};
-
-// Initialize dark mode
-darkMode.init();
-
 // Page-specific functions
 const pageFunctions = {
     // Home page specific functions
@@ -378,6 +589,5 @@ window.ARET = {
     cookies,
     analytics,
     formValidation,
-    darkMode,
     pageFunctions
 };

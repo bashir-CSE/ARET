@@ -83,7 +83,7 @@ function createCourseCard(course, index) {
     col.innerHTML = `
         <div class="card h-100 shadow-sm course-card" data-category="${course.category}" data-index="${index}">
             <div class="position-relative">
-                <img src="${course.image}" class="card-img-top" alt="${course.title}" loading="lazy">
+                <img src="${course.image}" class="card-img-top" alt="${course.title}" loading="lazy" style="opacity: 0; transition: opacity 0.3s ease;">
                 ${discount > 0 ? `<span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 rounded m-2">${discount}% OFF</span>` : ''}
                 <span class="position-absolute bottom-0 start-0 bg-primary text-white px-2 py-1 rounded m-2">${course.level}</span>
             </div>
@@ -111,11 +111,68 @@ function createCourseCard(course, index) {
                     <small class="text-muted">
                         <i class="fas fa-user-tie me-1"></i> ${course.instructor}
                     </small>
-                    <a href="${course.enrollmentUrl}" class="btn btn-primary w-100">Course Description</a>
+                    <a href="${course.enrollmentUrl}" class="btn btn-primary btn-sm">Course Description</a>
                 </div>
             </div>
         </div>
     `;
+    
+    // Initialize enhanced image loading with shimmering effect
+    const img = col.querySelector('img');
+    if (img) {
+        // Add shimmering effect while loading
+        img.style.backgroundImage = 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)';
+        img.style.backgroundSize = '200% 100%';
+        img.style.animation = 'loading 1.5s infinite';
+        
+        img.onload = function() {
+            // Remove loading animation and show image
+            this.style.backgroundImage = '';
+            this.style.animation = '';
+            this.style.opacity = '1';
+            this.classList.add('loaded');
+            console.log('Image loaded successfully:', this.src);
+        };
+        
+        img.onerror = function() {
+            console.error('Failed to load image:', this.src);
+            // Try alternative image paths with cascading fallbacks
+            if (this.src.includes('thumb-') && !this.src.includes('course-placeholder')) {
+                this.src = 'images/course-placeholder.svg';
+            } else if (!this.src.includes('placeholder')) {
+                this.src = 'https://via.placeholder.com/300x200/6c5ce7/ffffff?text=Course+Image';
+            } else {
+                // Final fallback - remove loading animation and show placeholder background
+                this.style.backgroundImage = 'linear-gradient(135deg, #6c5ce7 0%, #a777e3 100%)';
+                this.style.animation = '';
+            }
+            this.style.opacity = '1';
+        };
+        
+        // Check if image is already loaded (cached)
+        if (img.complete && img.naturalHeight !== 0) {
+            img.style.backgroundImage = '';
+            img.style.animation = '';
+            img.style.opacity = '1';
+            img.classList.add('loaded');
+        }
+        
+        // Force load check after a small delay to handle edge cases
+        setTimeout(() => {
+            if (img.style.opacity === '0') {
+                console.warn('Image taking longer to load, checking status:', img.src);
+                if (img.complete) {
+                    if (img.naturalHeight === 0) {
+                        // Image failed to load, trigger error handler
+                        img.onerror();
+                    } else {
+                        // Image loaded, trigger success handler
+                        img.onload();
+                    }
+                }
+            }
+        }, 3000); // 3 second timeout
+    }
     
     return col;
 }
@@ -162,9 +219,9 @@ function searchCourses(query) {
 // Format currency
 function formatCurrency(amount) {
     return new Intl.NumberFormat('en-BD', {
-        style: 'currency',
-        currency: 'BDT',
-        minimumFractionDigits: 2
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
     }).format(amount);
 }
 
